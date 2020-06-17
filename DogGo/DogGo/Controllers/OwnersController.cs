@@ -4,21 +4,40 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using DogGo.Repositories;
+using DogGo.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace DogGo.Controllers
 {
     public class OwnersController : Controller
     {
+        private readonly OwnerRepository _ownerRepo;
+
+        // The constructor accepts an IConfiguration object as a parameter. This class comes from the ASP.NET framework and is useful for retrieving things out of the appsettings.json file like connection strings.
+        public OwnersController(IConfiguration config)
+        {
+            _ownerRepo = new OwnerRepository(config);
+        }
+
         // GET: OwnersController
         public ActionResult Index()
         {
-            return View();
+            List<Owner> owners = _ownerRepo.GetAllOwners();
+
+            return View(owners);
         }
 
         // GET: OwnersController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Owner owner = _ownerRepo.GetOwnerById(id);
+
+            if (owner == null)
+            {
+                return NotFound();
+            }
+            return View(owner);
         }
 
         // GET: OwnersController/Create
