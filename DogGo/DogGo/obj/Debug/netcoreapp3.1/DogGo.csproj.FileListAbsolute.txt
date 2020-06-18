@@ -412,3 +412,5 @@ C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcor
 C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcoreapp3.1\DogGo.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcoreapp3.1\DogGo.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcoreapp3.1\Razor\Views\Owners\Create.cshtml.g.cs
+C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcoreapp3.1\Razor\Views\Owners\Details.cshtml.g.cs
+C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcoreapp3.1\Razor\Views\Owners\Delete.cshtml.g.cs
