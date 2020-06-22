@@ -6,28 +6,31 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using DogGo.Repositories;
 using Microsoft.Extensions.Configuration;
+using System.Security.Claims;
 
 namespace DogGo.Controllers
 {
-    public class DogController : Controller
+    public class DogsController : Controller
     {
         private readonly DogRepository _dogRepo;
 
         // The constructor accepts an IConfiguration object as a parameter. This class comes from the ASP.NET framework and is useful for retrieving things out of the appsettings.json file like connection strings.
-        public DogController(IConfiguration config)
+        public DogsController(IConfiguration config)
         {
             _dogRepo = new DogRepository(config);
         }
 
-        // GET: DogController
+        // GET: DogsController
         public ActionResult Index()
         {
-            List<Dog> dogs = _dogRepo.GetAllDogs();
+            int ownerId = GetCurrentUserId();
+
+            List<Dog> dogs = _dogRepo.GetDogsByOwnerId(ownerId);
 
             return View(dogs);
         }
 
-        // GET: DogController/Details/5
+        // GET: DogsController/Details/5
         public ActionResult Details(int id)
         {
             Dog dog = _dogRepo.GetDogById(id);
@@ -39,13 +42,13 @@ namespace DogGo.Controllers
             return View(dog);
         }
 
-        // GET: DogController/Create
+        // GET: DogsController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: DogController/Create
+        // POST: DogsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Dog dog)
@@ -62,7 +65,7 @@ namespace DogGo.Controllers
             }
         }
 
-        // GET: DogController/Edit/5
+        // GET: DogsController/Edit/5
         public ActionResult Edit(int id)
         {
             Dog dog= _dogRepo.GetDogById(id);
@@ -75,7 +78,7 @@ namespace DogGo.Controllers
             return View(dog);
         }
 
-        // POST: DogController/Edit/5
+        // POST: DogsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Dog dog)
@@ -92,7 +95,7 @@ namespace DogGo.Controllers
             }
         }
 
-        // GET: DogController/Delete/5
+        // GET: DogsController/Delete/5
         public ActionResult Delete(int id)
         {
             Dog dog = _dogRepo.GetDogById(id);
@@ -100,7 +103,7 @@ namespace DogGo.Controllers
             return View(dog);
         }
 
-        // POST: DogController/Delete/5
+        // POST: DogsController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, Dog dog)
@@ -115,6 +118,12 @@ namespace DogGo.Controllers
             {
                 return View(dog);
             }
+        }
+
+        private int GetCurrentUserId()
+        {
+            string id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return int.Parse(id);
         }
     }
 }
