@@ -416,3 +416,7 @@ C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcor
 C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcoreapp3.1\Razor\Views\Owners\Delete.cshtml.g.cs
 C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcoreapp3.1\Razor\Views\Owners\Edit.cshtml.g.cs
 C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcoreapp3.1\Razor\Views\Dog\Index.cshtml.g.cs
+C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcoreapp3.1\Razor\Views\Dog\Details.cshtml.g.cs
+C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcoreapp3.1\Razor\Views\Dog\Create.cshtml.g.cs
+C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcoreapp3.1\Razor\Views\Dog\Edit.cshtml.g.cs
+C:\Users\drewk\Developement\workspace\mvc-exercises\DogGo\DogGo\obj\Debug\netcoreapp3.1\Razor\Views\Dog\Delete.cshtml.g.cs
